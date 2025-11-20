@@ -18,7 +18,7 @@ export const experiences = [
 		duration: "(Jan 2018 - Jan 2020)",
 	},
 	{
-		id: 3,
+		id: 4,
 		title: "Voice Technical Support",
 		company: "Hinduja Global Solutions Limited.",
 		duration: "(Jan 2015 - Jan 2018)",

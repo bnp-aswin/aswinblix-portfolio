@@ -1,13 +1,42 @@
+"use client";
+
 import { projectsData } from '@/utils/data/projects-data';
 import ProjectCard from './project-card';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useRef } from 'react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Projects = () => {
+  const containerRef = useRef(null);
+
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 90%", // Trigger earlier
+        end: "bottom 20%",
+        toggleActions: "play none none reverse",
+      }
+    });
+
+    // Animate the header
+    tl.from(".section-header", {
+      x: -50,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    });
+
+  }, { scope: containerRef });
 
   return (
-    <div id='projects' className="relative z-50  my-12 lg:my-24">
+    <div ref={containerRef} id='projects' className="relative z-50  my-12 lg:my-24">
       <div className="sticky top-10">
         <div className="w-[80px] h-[80px] bg-violet-100 rounded-full absolute -top-3 left-0 translate-x-1/2 filter blur-3xl  opacity-30"></div>
-        <div className="flex items-center justify-start relative">
+        <div className="section-header flex items-center justify-start relative">
           <span className="bg-[#1a1443] absolute left-0  w-fit text-white px-5 py-3 text-xl rounded-md">
             PROJECTS
           </span>
