@@ -1,14 +1,11 @@
 export const skillsData = [
   'HTML',
   'CSS',
-  'SCSS',
   'Javascript',
-  'Laravel',
   'PHP',
   'MySQL',
   'Git',
   'Bootstrap',
-  'Shopify',
   'Wordpress'
 ]
 
