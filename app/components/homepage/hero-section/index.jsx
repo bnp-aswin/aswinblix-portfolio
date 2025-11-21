@@ -19,14 +19,18 @@ function HeroSection() {
   const containerRef = useRef(null);
 
   useGSAP(() => {
-    const tl = gsap.timeline();
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+    // Set initial visible state to prevent opacity 0 issues
+    gsap.set([".hero-text-element", ".hero-social-link", ".hero-btn", ".hero-code"], {
+      clearProps: "all"
+    });
 
     tl.from(".hero-text-element", {
       x: -50,
       opacity: 0,
       duration: 1,
       stagger: 0.2,
-      ease: "power3.out",
     })
     .from(".hero-scramble", {
       duration: 1.5,
@@ -49,12 +53,12 @@ function HeroSection() {
       duration: 0.5,
       stagger: 0.2,
       ease: "elastic.out(1, 0.3)",
+      clearProps: "all", // Clear all GSAP properties after animation
     }, "-=0.3")
     .from(".hero-code", {
       x: 50,
       opacity: 0,
       duration: 1,
-      ease: "power3.out",
     }, "-=1.5");
 
   }, { scope: containerRef });
@@ -62,11 +66,12 @@ function HeroSection() {
   return (
     <section ref={containerRef} className="relative flex flex-col items-center justify-between py-4 lg:py-12">
       <Image
-        src="/aswinblix-portfolio/hero.svg"
+        src="/hero.svg"
         alt="Hero"
         width={1572}
         height={795}
         className="absolute -top-[98px] -z-10"
+        priority
       />
 
       <div className="grid grid-cols-1 items-start lg:grid-cols-2 lg:gap-12 gap-y-8">
@@ -157,21 +162,21 @@ function HeroSection() {
                 <span className=" text-white">skills:</span>
                 <span className="text-gray-400">{`['`}</span>
                 <span className="text-amber-300">Laravel</span>
-                <span className="text-gray-400">{"', '"}</span>
+                <span className="text-gray-400">{", '"}</span>
                 <span className="text-amber-300">MySql</span>
-                <span className="text-gray-400">{"', '"}</span>
+                <span className="text-gray-400">{", '"}</span>
                 <span className="text-amber-300">Javascript</span>
-                <span className="text-gray-400">{"', '"}</span>
+                <span className="text-gray-400">{", '"}</span>
                 <span className="text-amber-300">PHP</span>
-                <span className="text-gray-400">{"', '"}</span>
+                <span className="text-gray-400">{", '"}</span>
                 <span className="text-amber-300">Boostrap</span>
-                <span className="text-gray-400">{"', '"}</span>
+                <span className="text-gray-400">{", '"}</span>
                 <span className="text-amber-300">Wordpress</span>
-                <span className="text-gray-400">{"', '"}</span>
+                <span className="text-gray-400">{", '"}</span>
                 <span className="text-amber-300">Shopify</span>
-                <span className="text-gray-400">{"', '"}</span>
+                <span className="text-gray-400">{", '"}</span>
                 <span className="text-amber-300">SASS</span>
-                <span className="text-gray-400">{"', '"}</span>
+                <span className="text-gray-400">{", '"}</span>
                 <span className="text-amber-300">Git</span>
                 <span className="text-gray-400">{"'],"}</span>
               </div>
