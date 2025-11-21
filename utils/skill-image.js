@@ -1,15 +1,10 @@
-import * as adobeXd from '/public/svg/skills/adobe-xd.svg';
-import adobeaudition from '/public/svg/skills/adobeaudition.svg';
-import afterEffects from '/public/svg/skills/after-effects.svg';
 import angular from '/public/svg/skills/angular.svg';
 import aws from '/public/svg/skills/aws.svg';
 import azure from '/public/svg/skills/azure.svg';
 import blender from '/public/svg/skills/blender.svg';
 import bootstrap from '/public/svg/skills/bootstrap.svg';
-import bulma from '/public/svg/skills/bulma.svg';
 import c from '/public/svg/skills/c.svg';
 import canva from '/public/svg/skills/canva.svg';
-import capacitorjs from '/public/svg/skills/capacitorjs.svg';
 import coffeescript from '/public/svg/skills/coffeescript.svg';
 import cplusplus from '/public/svg/skills/cplusplus.svg';
 import csharp from '/public/svg/skills/csharp.svg';
@@ -87,10 +82,6 @@ export const skillsImage = (skill) => {
       return docker;
     case 'illustrator':
       return illustrator;
-    case 'adobe xd':
-      return adobeXd;
-    case 'after effects':
-      return afterEffects;
     case 'css':
       return css;
     case 'angular':
@@ -111,10 +102,6 @@ export const skillsImage = (skill) => {
       return vue;
     case 'bootstrap':
       return bootstrap;
-    case 'bulma':
-      return bulma;
-    case 'capacitorjs':
-      return capacitorjs;
     case 'coffeescript':
       return coffeescript;
     case 'memsql':
@@ -157,8 +144,6 @@ export const skillsImage = (skill) => {
       return ruby;
     case 'swift':
       return swift;
-    case 'adobe audition':
-      return adobeaudition;
     case 'aws':
       return aws;
     case 'deno':
