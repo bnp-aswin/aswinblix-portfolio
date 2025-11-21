@@ -67,11 +67,17 @@ import vuetifyjs from '/public/svg/skills/vuetifyjs.svg';
 import webix from '/public/svg/skills/webix.svg';
 import wolframalpha from '/public/svg/skills/wolframalpha.svg';
 import wordpress from '/public/svg/skills/wordpress.svg';
+import nodejs from '/public/svg/skills/nodejs.svg';
+import ubuntu from '/public/svg/skills/ubuntu.svg';
 
 
 export const skillsImage = (skill) => {
   const skillID = skill.toLowerCase();
   switch (skillID) {
+    case 'ubuntu':
+      return ubuntu;
+    case 'nodejs':
+      return nodejs;
     case 'gcp':
       return gcp;
     case 'html':
