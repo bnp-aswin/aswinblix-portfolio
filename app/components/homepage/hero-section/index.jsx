@@ -19,19 +19,13 @@ function HeroSection() {
   const containerRef = useRef(null);
 
   useGSAP(() => {
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    const tl = gsap.timeline();
 
-    // Set initial visible state to prevent opacity 0 issues
-    gsap.set([".hero-text-element", ".hero-social-link", ".hero-btn", ".hero-code"], {
-      clearProps: "all"
-    });
-
-    tl.from(".hero-text-element", {
-      x: -50,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.2,
-    })
+    // Use fromTo to ensure proper initial and final states
+    tl.fromTo(".hero-text-element", 
+      { x: -50, opacity: 0 },
+      { x: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out" }
+    )
     .from(".hero-scramble", {
       duration: 1.5,
       scrambleText: {
@@ -40,26 +34,21 @@ function HeroSection() {
       },
       stagger: 0.2,
     }, "-=0.8")
-    .from(".hero-social-link", {
-      y: 20,
-      opacity: 0,
-      duration: 0.5,
-      stagger: 0.1,
-      ease: "back.out(1.7)",
-    }, "-=0.5")
-    .from(".hero-btn", {
-      scale: 0.5,
-      opacity: 0,
-      duration: 0.5,
-      stagger: 0.2,
-      ease: "elastic.out(1, 0.3)",
-      clearProps: "all", // Clear all GSAP properties after animation
-    }, "-=0.3")
-    .from(".hero-code", {
-      x: 50,
-      opacity: 0,
-      duration: 1,
-    }, "-=1.5");
+    .fromTo(".hero-social-link",
+      { y: 20, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, ease: "back.out(1.7)" },
+      "-=0.5"
+    )
+    .fromTo(".hero-btn",
+      { scale: 0.5, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.5, stagger: 0.2, ease: "elastic.out(1, 0.3)" },
+      "-=0.3"
+    )
+    .fromTo(".hero-code",
+      { x: 50, opacity: 0 },
+      { x: 0, opacity: 1, duration: 1, ease: "power3.out" },
+      "-=1.5"
+    );
 
   }, { scope: containerRef });
 
