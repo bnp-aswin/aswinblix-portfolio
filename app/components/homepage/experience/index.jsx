@@ -14,7 +14,7 @@ function Experience() {
     <div id="experience" className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]">
       <Image
         src="/aswinblix-portfolio/section.svg"
-        alt="Hero"
+        alt="section svg"
         width={1572}
         height={795}
         className="absolute top-0 -z-10"
@@ -46,7 +46,7 @@ function Experience() {
                     <div className="p-3 relative">
                       <Image
                         src="/aswinblix-portfolio/blur-23.svg"
-                        alt="Hero"
+                        alt="blur effect"
                         width={1080}
                         height={200}
                         className="absolute bottom-0 opacity-80"
