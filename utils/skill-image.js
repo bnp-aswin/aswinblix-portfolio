@@ -19,7 +19,7 @@ import firebase from '/public/svg/skills/firebase.svg';
 import flutter from '/public/svg/skills/flutter.svg';
 import gcp from '/public/svg/skills/gcp.svg';
 import gimp from '/public/svg/skills/gimp.svg';
-import git from '/public/svg/skills/git.svg';
+import github from '/public/svg/skills/github.svg';
 import go from '/public/svg/skills/go.svg';
 import graphql from '/public/svg/skills/graphql.svg';
 import haxe from '/public/svg/skills/haxe.svg';
@@ -69,6 +69,8 @@ import wolframalpha from '/public/svg/skills/wolframalpha.svg';
 import wordpress from '/public/svg/skills/wordpress.svg';
 import nodejs from '/public/svg/skills/nodejs.svg';
 import ubuntu from '/public/svg/skills/ubuntu.svg';
+import odoo from '/public/svg/skills/odoo.svg';
+import shopify from '/public/svg/skills/shopify.svg';
 
 
 export const skillsImage = (skill) => {
@@ -77,7 +79,12 @@ export const skillsImage = (skill) => {
     case 'ubuntu':
       return ubuntu;
     case 'nodejs':
+    case 'node js':
       return nodejs;
+    case 'odoo':
+      return odoo;
+    case 'shopify':
+      return shopify;
     case 'gcp':
       return gcp;
     case 'html':
@@ -160,8 +167,8 @@ export const skillsImage = (skill) => {
       return firebase;
     case 'gimp':
       return gimp;
-    case 'git':
-      return git;
+    case 'github':
+      return github;
     case 'graphql':
       return graphql;
     case 'lightroom':
