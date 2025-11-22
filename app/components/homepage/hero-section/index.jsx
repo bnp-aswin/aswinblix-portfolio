@@ -56,7 +56,7 @@ function HeroSection() {
     <section ref={containerRef} className="relative flex flex-col items-center justify-between py-4 lg:py-12">
       <Image
         src="/aswinblix-portfolio/hero.svg"
-        alt="Her svg"
+        alt="Hero svg"
         width={1572}
         height={795}
         className="absolute -top-[98px] -z-10"
@@ -64,12 +64,11 @@ function HeroSection() {
       />
 
       <div className="grid grid-cols-1 items-start lg:grid-cols-2 lg:gap-12 gap-y-8">
-        <div className="order-1 flex flex-col items-start justify-center p-2 pb-10 lg:pt-10">
+        <div className="order-2 lg:order-1 flex flex-col items-start justify-center p-2 pb-10 lg:pt-10">
           <h1 className="hero-text-element text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
-            Hello, <br />
-            This is {' '}
+            Hello, I&apos;m <br />
             <span className="hero-scramble text-pink-500">{personalData.name}</span>
-            {` , I'm a Professional `}
+            {` — an `}
             <span className="hero-scramble text-[#16f2b3]">{personalData.designation}</span>
             .
           </h1>
@@ -152,21 +151,33 @@ function HeroSection() {
                 <span className="text-gray-400">{`['`}</span>
                 <span className="text-amber-300">Laravel</span>
                 <span className="text-gray-400">{", '"}</span>
-                <span className="text-amber-300">MySql</span>
-                <span className="text-gray-400">{", '"}</span>
                 <span className="text-amber-300">Javascript</span>
+                <span className="text-gray-400">{", '"}</span>
+                <span className="text-amber-300">Vue</span>
+                <span className="text-gray-400">{", '"}</span>
+                <span className="text-amber-300">React</span>
                 <span className="text-gray-400">{", '"}</span>
                 <span className="text-amber-300">PHP</span>
                 <span className="text-gray-400">{", '"}</span>
-                <span className="text-amber-300">Boostrap</span>
+                <span className="text-amber-300">Python</span>
+                <span className="text-gray-400">{", '"}</span>
+                <span className="text-amber-300">Bootstrap</span>
                 <span className="text-gray-400">{", '"}</span>
                 <span className="text-amber-300">Wordpress</span>
                 <span className="text-gray-400">{", '"}</span>
                 <span className="text-amber-300">Shopify</span>
                 <span className="text-gray-400">{", '"}</span>
+                <span className="text-amber-300">Odoo</span>
+                <span className="text-gray-400">{", '"}</span>
                 <span className="text-amber-300">SASS</span>
                 <span className="text-gray-400">{", '"}</span>
-                <span className="text-amber-300">Git</span>
+                <span className="text-amber-300">GitHub</span>
+                <span className="text-gray-400">{", '"}</span>
+                <span className="text-amber-300">AWS</span>
+                <span className="text-gray-400">{", '"}</span>
+                <span className="text-amber-300">Ubuntu</span>
+                <span className="text-gray-400">{", '"}</span>
+                <span className="text-amber-300">MySQL</span>
                 <span className="text-gray-400">{"'],"}</span>
               </div>
               <div>

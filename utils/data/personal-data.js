@@ -1,9 +1,9 @@
 export const personalData = {
-	name: "Aswin Blix TC",
+	name: "Aswin Blix T.C",
 	profile: "/aswinblix-portfolio/profile.jpeg",
-	designation: "Web Developer",
+	designation: "AI-Assisted Full-Stack & Creative Web Developer",
 	description:
-		"My name is Aswin Blix. I am a professional and enthusiastic programmer in my daily life. I am a quick learner with a self-learning attitude. I love to learn and explore new technologies and am passionate about problem-solving. I love almost all the stacks of web application development and love to make the web more open to the world. My core skill is based on JavaScript and I love to do most of the things using JavaScript. I am available for any kind of job opportunity that suits my skills and interests.",
+		"Hey! I’m Aswin Blix — a passionate programmer who loves building clean, modern web experiences. I’m a quick learner who enjoys exploring new tech, especially in the JavaScript world, and I often dive into other languages like Python and C# with the help of AI tools. I enjoy problem-solving, creating things that feel simple and useful, and I’m always open to opportunities that let me learn, grow, and build something meaningful.",
 	email: "aswinasvin13@gmail.com",
 	phone: "+91 9488 131 904",
 	address: "Kanniyakumari, Tamil Nadu, India - 629168",
