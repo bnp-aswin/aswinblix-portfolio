@@ -9,7 +9,7 @@ function Navbar() {
                 <div className="flex flex-shrink-0 items-center">
                     <Link href="/" className="flex items-center">
                         <Image
-                            src="/aswinblix-portfolio/logo.png"
+                            src="/logo.png"
                             alt="Aswin Blix Logo"
                             width={100}
                             height={32}

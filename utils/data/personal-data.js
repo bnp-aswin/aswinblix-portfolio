@@ -1,6 +1,6 @@
 export const personalData = {
     name: "Aswin Blix T.C",
-    profile: "/aswinblix-portfolio/profile.jpeg",
+    profile: "/image/my-profile.jpg",
     designation: "AI-Assisted Full-Stack & Creative Web Developer",
     description:
         "Hey! I’m Aswin Blix — a passionate programmer who loves building clean, modern web experiences. I’m a quick learner who enjoys exploring new tech, especially in the JavaScript world, and I often dive into other languages like Python and C# with the help of AI tools. I enjoy problem-solving, creating things that feel simple and useful, and I’m always open to opportunities that let me learn, grow, and build something meaningful.",
