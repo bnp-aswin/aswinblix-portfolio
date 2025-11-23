@@ -85,8 +85,8 @@ function HeroSection() {
             <div className="grid grid-cols-1 items-start lg:grid-cols-2 lg:gap-12 gap-y-8">
                 <div className="order-1 flex flex-col items-start justify-center p-2 pb-10 lg:pt-10">
                     <h1 className="hero-text-element text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
-                        Hello, I&apos;m <br />
-                        <span className="hero-scramble text-pink-500">{personalData.name}</span>
+                        Hello, I&apos;m
+                        <span className="hero-scramble text-pink-500">{personalData.name}</span><br />
                         {` — an `}
                         <span className="hero-scramble text-[#16f2b3]">
                             {personalData.designation}
