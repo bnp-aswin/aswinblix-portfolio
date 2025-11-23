@@ -1,7 +1,7 @@
 const path = require("path");
 
 // Detect if we're building for GitHub Pages
-const isGithubPages = process.env.IS_GITHUB_PAGES === "true";
+const isGithubPages = process.env.GITHUB_PAGES === "true";
 
 module.exports = {
     sassOptions: {
