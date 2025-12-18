@@ -6,7 +6,7 @@
 export const projectsData = [
     {
         id: 1,
-        name: "Yoode - Custom Merchandise Platform",
+        name: "Yoode - Custom Merchandise",
         description:
             "I architected and launched the e-commerce platform for Yoode.com, a leading custom apparel brand. I developed custom UI sections by writing specialized Liquid code to extend the theme's functionality beyond its native capabilities. I handled the complete setup, including product catalog management and seamless integrations for Razorpay and WhatsApp. Additionally, I engineered the network layer by managing the domain via AWS Route 53 and provisioning SSL certificates using AWS Certificate Manager (ACM) for secure, high-availability access.",
         tools: [
@@ -26,7 +26,7 @@ export const projectsData = [
     },
     {
         id: 2,
-        name: "NSRL Garments Manufacturing Platform",
+        name: "NSRL Garments Manufacturing",
         description:
             "I architected and deployed a comprehensive Odoo-based ERP and e-commerce solution for NSRL Garments. Beyond the Odoo implementation, I designed a robust AWS infrastructure using Route 53 for domain management and AWS Certificate Manager (ACM) for secure SSL provisioning. I configured an AWS CloudFront distribution to serve as a high-performance CDN and reverse proxy, ensuring fast global content delivery and secure SSL termination for the platform.",
         tools: [
