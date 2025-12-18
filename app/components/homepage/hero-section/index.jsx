@@ -182,6 +182,12 @@ function HeroSection() {
                                 <span className="text-gray-400">{", '"}</span>
                                 <span className="text-amber-300">Vue</span>
                                 <span className="text-gray-400">{", '"}</span>
+                                <span className="text-amber-300">NextJS</span>
+                                <span className="text-gray-400">{", '"}</span>
+                                <span className="text-amber-300">MedusaJS</span>
+                                <span className="text-gray-400">{", '"}</span>
+                                <span className="text-amber-300">Git</span>
+                                <span className="text-gray-400">{", '"}</span>
                                 <span className="text-amber-300">React</span>
                                 <span className="text-gray-400">{", '"}</span>
                                 <span className="text-amber-300">PHP</span>
@@ -197,6 +203,8 @@ function HeroSection() {
                                 <span className="text-amber-300">Odoo</span>
                                 <span className="text-gray-400">{", '"}</span>
                                 <span className="text-amber-300">SASS</span>
+                                <span className="text-gray-400">{", '"}</span>
+                                <span className="text-amber-300">Tailwind</span>
                                 <span className="text-gray-400">{", '"}</span>
                                 <span className="text-amber-300">GitHub</span>
                                 <span className="text-gray-400">{", '"}</span>
