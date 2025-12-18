@@ -107,10 +107,10 @@ export const projectsData = [
         // image: speedify,
     },
     {
-        "id": 6,
-        "name": "NSRL Garments Stats",
-        "description": "A full-stack web application for tracking and analyzing garment manufacturing statistics. I developed the backend using Laravel (PHP) and the frontend with Vue.js, Tailwind CSS, and Bootstrap, incorporating GSAP for animations. The application is deployed on AWS Elastic Beanstalk with a secure custom subdomain configuration using AWS CloudFront and ACM certificates.",
-        "tools": [
+        id: 6,
+        name: "NSRL Garments Stats",
+        description: "A full-stack web application for tracking and analyzing garment manufacturing statistics. I developed the backend using Laravel (PHP) and the frontend with Vue.js, Tailwind CSS, and Bootstrap, incorporating GSAP for animations. The application is deployed on AWS Elastic Beanstalk with a secure custom subdomain configuration using AWS CloudFront and ACM certificates.",
+        tools: [
             "Laravel",
             "Vue.js",
             "Tailwind CSS",
@@ -121,9 +121,9 @@ export const projectsData = [
             "AWS CloudFront",
             "AWS Certificate Manager"
         ],
-        "role": "Full Stack Developer",
-        "code": "",
-        "demo": "",
+        role: "Full Stack Developer",
+        code: "",
+        demo: "",
         // image: nsrl_stats,
     }
 ];
