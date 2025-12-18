@@ -13,7 +13,7 @@ function Experience() {
     return (
         <div id="experience" className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]">
             <Image
-                src="/section.svg"
+                src={(process.env.NEXT_PUBLIC_BASE_PATH || "") + "/section.svg"}
                 alt="section svg"
                 width={1572}
                 height={795}
@@ -47,7 +47,7 @@ function Experience() {
                                 >
                                     <div className="p-3 relative">
                                         <Image
-                                            src="/blur-23.svg"
+                                            src={(process.env.NEXT_PUBLIC_BASE_PATH || "") + "/blur-23.svg"}
                                             alt="blur effect"
                                             width={1080}
                                             height={200}

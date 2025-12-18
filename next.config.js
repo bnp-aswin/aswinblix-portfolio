@@ -11,6 +11,9 @@ module.exports = {
         domains: ["res.cloudinary.com", "media.dev.to"],
         unoptimized: true,
     },
+    env: {
+        NEXT_PUBLIC_BASE_PATH: isGithubPages ? "/aswinblix-portfolio" : "",
+    },
     // Only add these settings for GitHub Pages deployment
     ...(isGithubPages && {
         basePath: "/aswinblix-portfolio",

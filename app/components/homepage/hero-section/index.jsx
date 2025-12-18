@@ -74,7 +74,7 @@ function HeroSection() {
             className="relative flex flex-col items-center justify-between py-4 lg:py-12"
         >
             <Image
-                src="/hero.svg"
+                src={(process.env.NEXT_PUBLIC_BASE_PATH || "") + "/hero.svg"}
                 alt="Hero svg"
                 width={1572}
                 height={795}
