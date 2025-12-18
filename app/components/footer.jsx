@@ -20,6 +20,14 @@ function Footer() {
                         >
                             Aswin Blix
                         </Link>
+                        {" & "}
+                        <Link
+                            target="_blank"
+                            href="https://antigravity.google/"
+                            className="text-[#16f2b3]"
+                        >
+                            Antigravity
+                        </Link>
                     </p>
                 </div>
             </div>
