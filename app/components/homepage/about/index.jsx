@@ -2,90 +2,98 @@
 
 import { personalData } from "@/utils/data/personal-data";
 import Image from "next/image";
+import Link from "next/link";
+import dynamic from "next/dynamic";
+import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SplitText from "gsap/SplitText";
-import { useRef } from "react";
+import { BsGithub, BsLinkedin, BsTwitter, BsFacebook } from "react-icons/bs";
+import SectionHeading from "../../helper/section-heading";
+import lottieAbout from "/public/lottie/coding.json";
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
+const AnimationLottie = dynamic(() => import("../../helper/animation-lottie"), { ssr: false });
+
+gsap.registerPlugin(ScrollTrigger);
+
+const SOCIALS = [
+    { href: personalData.github, icon: BsGithub, label: "GitHub" },
+    { href: personalData.linkedIn, icon: BsLinkedin, label: "LinkedIn" },
+    { href: personalData.twitter, icon: BsTwitter, label: "Twitter" },
+    { href: personalData.facebook, icon: BsFacebook, label: "Facebook" },
+];
 
 function AboutSection() {
     const containerRef = useRef(null);
 
     useGSAP(
         () => {
-            const split = new SplitText(".about-description", { type: "words,chars" });
-
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top 80%",
-                    end: "bottom 20%",
-                    toggleActions: "play none none reverse",
-                },
-            });
-
-            tl.from(".about-header", {
-                x: -50,
-                opacity: 0,
-                duration: 1,
-                ease: "power3.out",
-            })
-                .from(
-                    split.words,
-                    {
-                        opacity: 0,
-                        y: 20,
-                        duration: 0.5,
-                        stagger: 0.02,
-                        ease: "back.out",
-                    },
-                    "-=0.5"
-                )
-                .from(
-                    ".about-image",
-                    {
-                        scale: 0.8,
-                        opacity: 0,
-                        duration: 1,
-                        ease: "power3.out",
-                    },
-                    "-=0.5"
-                );
+            gsap.fromTo(
+                ".about-rise",
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.7,
+                    stagger: 0.12,
+                    ease: "power3.out",
+                    scrollTrigger: { trigger: containerRef.current, start: "top 80%" },
+                }
+            );
         },
         { scope: containerRef }
     );
 
     return (
-        <div ref={containerRef} id="about" className="my-12 lg:my-16 relative">
-            <div className="hidden lg:flex flex-col items-center absolute top-16 -right-8">
-                <span className="bg-[#1a1443] w-fit text-white rotate-90 p-2 px-5 text-xl rounded-md">
-                    ABOUT ME
-                </span>
-                <span className="h-36 w-[2px] bg-[#1a1443]"></span>
-            </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-                <div className="about-content order-2 lg:order-1">
-                    <p className="about-header font-medium mb-5 text-[#16f2b3] text-xl uppercase">
-                        Who I am?
-                    </p>
-                    <p className="about-description text-gray-200 text-sm lg:text-lg">
-                        {personalData.description}
-                    </p>
+        <section ref={containerRef} id="about" className="nm-section">
+            <SectionHeading title="Who I Am" />
+
+            <div className="nm-surface relative overflow-hidden rounded-[28px] p-6 shadow-nm-raised-lg sm:p-8 lg:p-10">
+                {/* Decorative grayscale lottie, top-right */}
+                <div className="pointer-events-none absolute -right-6 -top-6 hidden w-40 opacity-20 grayscale lg:block xl:w-52">
+                    <AnimationLottie animationPath={lottieAbout} />
                 </div>
-                <div className="about-image flex justify-center order-1 lg:order-2">
-                    <Image
-                        src={personalData.profile}
-                        width={280}
-                        height={280}
-                        alt="Aswin Blix"
-                        className="rounded-lg transition-all duration-1000 grayscale hover:grayscale-0 hover:scale-110 cursor-pointer"
-                        priority
-                    />
+
+                <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[auto_1fr] lg:gap-14">
+                    {/* LEFT — photo + socials */}
+                    <div className="about-rise flex flex-col items-center gap-6">
+                        <div className="nm-surface rounded-full p-3 shadow-nm-raised-lg">
+                            <Image
+                                src={personalData.profile}
+                                width={200}
+                                height={200}
+                                alt="Aswin Blix"
+                                priority
+                                className="h-[180px] w-[180px] rounded-full object-cover grayscale transition-all duration-700 hover:grayscale-0 sm:h-[200px] sm:w-[200px]"
+                            />
+                        </div>
+                        <div className="flex items-center gap-3">
+                            {SOCIALS.map(({ href, icon: Icon, label }) => (
+                                <Link
+                                    key={label}
+                                    href={href}
+                                    target="_blank"
+                                    aria-label={label}
+                                    className="nm-icon-btn h-10 w-10"
+                                >
+                                    <Icon size={16} />
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* RIGHT — copy */}
+                    <div className="about-rise relative z-10">
+                        <h2 className="mb-4 text-2xl font-extrabold tracking-tight text-nm-text sm:text-[28px]">
+                            Hey! I&apos;m Aswin Blix
+                        </h2>
+                        <p className="max-w-2xl text-[15px] leading-[1.8] text-nm-muted">
+                            {personalData.description}
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 

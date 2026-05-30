@@ -1,12 +1,18 @@
 import { GoogleTagManager } from "@next/third-parties/google";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
-import "./css/card.scss";
+import ScrollProgress from "./components/scroll-progress";
+import { ThemeProvider } from "./components/theme-provider";
 import "./css/globals.scss";
-const inter = Inter({ subsets: ["latin"] });
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const jetbrainsMono = JetBrains_Mono({
+    subsets: ["latin"],
+    variable: "--font-mono",
+});
 
 export const metadata = {
     metadataBase: new URL("https://aswin-blix.github.io"),
@@ -83,14 +89,25 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en">
-            <body className={inter.className}>
-                <ToastContainer />
-                <main className="min-h-screen relative mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem] text-white">
-                    <Navbar />
-                    {children}
-                </main>
-                <Footer />
+        <html lang="en" suppressHydrationWarning>
+            <body
+                suppressHydrationWarning
+                className={`${inter.variable} ${jetbrainsMono.variable} ${inter.className} nm-surface text-nm-text`}
+            >
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="dark"
+                    enableSystem={false}
+                    disableTransitionOnChange
+                >
+                    <ToastContainer theme="dark" />
+                    <ScrollProgress />
+                    <main className="relative mx-auto min-h-screen w-full max-w-[1200px] px-5 sm:px-8">
+                        <Navbar />
+                        {children}
+                    </main>
+                    <Footer />
+                </ThemeProvider>
             </body>
             <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM} />
         </html>

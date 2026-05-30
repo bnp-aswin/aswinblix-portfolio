@@ -1,90 +1,64 @@
-// @flow strict
+"use client";
 
 import { experiences } from "@/utils/data/experience";
-import Image from "next/image";
-import { BsPersonWorkspace } from "react-icons/bs";
-import dynamic from "next/dynamic";
-import GlowCard from "../../helper/glow-card";
-import experience from "/public/lottie/code.json";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SectionHeading from "../../helper/section-heading";
 
-const AnimationLottie = dynamic(() => import("../../helper/animation-lottie"), { ssr: false });
+gsap.registerPlugin(ScrollTrigger);
 
 function Experience() {
+    const containerRef = useRef(null);
+
+    useGSAP(
+        () => {
+            gsap.fromTo(
+                ".exp-card",
+                { opacity: 0, y: 40, rotateX: -14, transformPerspective: 800, transformOrigin: "50% 100%" },
+                {
+                    opacity: 1,
+                    y: 0,
+                    rotateX: 0,
+                    duration: 0.6,
+                    stagger: 0.1,
+                    ease: "power3.out",
+                    scrollTrigger: { trigger: containerRef.current, start: "top 80%" },
+                }
+            );
+        },
+        { scope: containerRef }
+    );
+
     return (
-        <div id="experience" className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]">
-            <Image
-                src={(process.env.NEXT_PUBLIC_BASE_PATH || "") + "/section.svg"}
-                alt="section svg"
-                width={1572}
-                height={795}
-                className="absolute top-0 -z-10"
-            />
+        <section ref={containerRef} id="experience" className="nm-section">
+            <SectionHeading title="Experience" />
 
-            <div className="flex justify-center -translate-y-[1px]">
-                <div className="w-3/4">
-                    <div className="h-[1px] bg-gradient-to-r from-transparent via-violet-500 to-transparent w-full" />
-                </div>
-            </div>
+            <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
+                {experiences.map((exp) => (
+                    <div
+                        key={exp.id}
+                        className="exp-card nm-surface relative flex flex-col gap-3 rounded-[20px] p-6 shadow-nm-raised"
+                    >
+                        <span className="nm-tag w-fit px-3.5 py-1.5 text-[11px] text-nm-muted">
+                            {exp.duration.replace(/[()]/g, "")}
+                        </span>
 
-            <div className="flex justify-center my-5 lg:py-8">
-                <div className="flex items-center">
-                    <span className="w-24 h-[2px] bg-[#1a1443]"></span>
-                    <span className="bg-[#1a1443] w-fit text-white p-2 px-5 text-xl rounded-md">
-                        Experiences
-                    </span>
-                    <span className="w-24 h-[2px] bg-[#1a1443]"></span>
-                </div>
-            </div>
+                        <div className="pr-12">
+                            <h3 className="text-[15px] font-extrabold leading-snug text-nm-text">
+                                {exp.company.replace(/\.$/, "")}
+                            </h3>
+                            <p className="mt-1 text-xs text-nm-muted">{exp.title}</p>
+                        </div>
 
-            <div className="py-8">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-                    <div className="flex justify-center items-start">
-                        <div className="w-full h-full">
-                            <AnimationLottie animationPath={experience} />
+                        <div className="nm-surface absolute bottom-6 right-6 flex h-9 w-9 items-center justify-center rounded-full text-sm font-black text-nm-muted shadow-nm-inset">
+                            {exp.company.trim().charAt(0)}
                         </div>
                     </div>
-
-                    <div>
-                        <div className="flex flex-col gap-6">
-                            {experiences.map((experience) => (
-                                <GlowCard
-                                    key={experience.id}
-                                    identifier={`experience-${experience.id}`}
-                                >
-                                    <div className="p-3 relative">
-                                        <Image
-                                            src={(process.env.NEXT_PUBLIC_BASE_PATH || "") + "/blur-23.svg"}
-                                            alt="blur effect"
-                                            width={1080}
-                                            height={200}
-                                            className="absolute bottom-0 opacity-80"
-                                        />
-                                        <div className="flex justify-center">
-                                            <p className="text-xs sm:text-sm text-[#16f2b3]">
-                                                {experience.duration}
-                                            </p>
-                                        </div>
-                                        <div className="flex items-center gap-x-8 px-3 py-5">
-                                            <div className="text-violet-500 transition-all duration-300 hover:scale-125">
-                                                <BsPersonWorkspace size={36} />
-                                            </div>
-                                            <div>
-                                                <p className="text-base sm:text-xl mb-2 font-medium uppercase">
-                                                    {experience.title}
-                                                </p>
-                                                <p className="text-sm sm:text-base">
-                                                    {experience.company}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </GlowCard>
-                            ))}
-                        </div>
-                    </div>
-                </div>
+                ))}
             </div>
-        </div>
+        </section>
     );
 }
 

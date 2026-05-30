@@ -2,14 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   FUTURISTIC NEUMORPHISM — DESIGN TOKENS  (single source of truth)
+   Black & White only.
+
+   HOW TO CUSTOMISE
+   • Change a value ONCE here and it flows everywhere:
+       - Tailwind utilities  (bg-nm-bg, text-nm-{text,muted,faint},
+         shadow-nm-{raised,raised-sm,raised-lg,inset,inset-sm})
+         are mapped to these vars in tailwind.config.js — no values live there.
+       - The .nm-* helper classes further down read these vars.
+       - GSAP boxShadow tweens read var(--nm-raised) / var(--nm-inset) / etc.
+   • The shadow PRESETS are derived from --nm-shadow-dark / --nm-shadow-light,
+     so re-tinting those two colours restyles every raised/inset surface.
+   • Light mode = :root, dark mode = .dark (next-themes attribute="class").
+     Presets are defined only on :root and re-resolve against the dark
+     shadow colours automatically — no need to repeat them under .dark.
+   ============================================================ */
+
 :root {
-    --foreground-rgb: 211, 216, 232;
+    /* Surface */
+    --nm-bg: #e2e2e2;
+
+    /* Shadow source colours — drive every neumorphic preset below */
+    --nm-shadow-dark: #c0c0c0;
+    --nm-shadow-light: #ffffff;
+
+    /* Text hierarchy: primary -> muted -> faint */
+    --nm-text: #1a1a1a;
+    --nm-text-muted: #666666;
+    --nm-text-faint: #999999;
+
+    /* Shadow presets (composed from the two shadow colours above) */
+    --nm-raised:    6px 6px 14px var(--nm-shadow-dark),   -6px -6px 14px var(--nm-shadow-light);
+    --nm-raised-sm: 3px 3px 7px var(--nm-shadow-dark),    -3px -3px 7px var(--nm-shadow-light);
+    --nm-raised-lg: 10px 10px 24px var(--nm-shadow-dark), -10px -10px 24px var(--nm-shadow-light);
+    --nm-inset:     inset 4px 4px 10px var(--nm-shadow-dark), inset -4px -4px 10px var(--nm-shadow-light);
+    --nm-inset-sm:  inset 2px 2px 6px var(--nm-shadow-dark),  inset -2px -2px 6px var(--nm-shadow-light);
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --foreground-rgb: 255, 255, 255;
-    }
+.dark {
+    --nm-bg: #1c1c1e;
+    --nm-shadow-dark: #111113;
+    --nm-shadow-light: #272729;
+    --nm-text: #ebebeb;
+    --nm-text-muted: #888888;
+    --nm-text-faint: #555555;
 }
 
 html {
@@ -17,21 +55,146 @@ html {
 }
 
 body {
-    color: rgb(var(--foreground-rgb));
-    background-color: #0d1224;
+    color: var(--nm-text);
+    background-color: var(--nm-bg);
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 ::selection {
-    background-color: rgba(139, 92, 246, 0.3);
-    color: #fff;
+    background-color: var(--nm-text);
+    color: var(--nm-bg);
 }
 
-.sticky-card {
-    top: calc(var(--index) * 2.5rem);
-}
+/* ============================================================
+   NEUMORPHIC UTILITY CLASSES
+   ============================================================ */
 
-@media (min-width: 1024px) {
-    .sticky-card {
-        top: calc(var(--index) * 3rem);
+.nm-surface  { background: var(--nm-bg); }
+.nm-raised    { box-shadow: var(--nm-raised); }
+.nm-raised-lg { box-shadow: var(--nm-raised-lg); }
+.nm-inset     { box-shadow: var(--nm-inset); }
+.nm-inset-sm  { box-shadow: var(--nm-inset-sm); }
+
+/* ------------------------------------------------------------
+   Reusable component classes. Declared in the `components` layer
+   so any per-instance Tailwind utility (size, padding, text size)
+   still overrides them. Compose with sizing utilities inline, e.g.
+   <button class="nm-icon-btn h-9 w-9">.
+   ------------------------------------------------------------ */
+@layer components {
+    /* Consistent vertical rhythm for every homepage section */
+    .nm-section {
+        @apply scroll-mt-24 py-12 sm:py-16 lg:py-24;
     }
+
+    /* Raised pill button — presses in on hover/active */
+    .nm-btn {
+        background: var(--nm-bg);
+        @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5
+            text-sm font-semibold text-nm-text shadow-nm-raised transition-all duration-200;
+    }
+    .nm-btn:hover {
+        @apply shadow-nm-inset;
+    }
+    .nm-btn:active {
+        @apply scale-[0.98];
+    }
+
+    /* Filled / inverted primary button */
+    .nm-btn-primary {
+        background: var(--nm-text);
+        color: var(--nm-bg);
+        @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5
+            text-sm font-semibold transition-transform duration-200 hover:-translate-y-0.5;
+    }
+
+    /* Round icon button — raised, presses in on hover */
+    .nm-icon-btn {
+        background: var(--nm-bg);
+        @apply flex items-center justify-center rounded-full text-nm-muted
+            shadow-nm-raised transition-all duration-200;
+    }
+    .nm-icon-btn:hover {
+        @apply text-nm-text shadow-nm-inset;
+    }
+
+    /* Inset mini tag / chip (dates, tech tags, role badges) */
+    .nm-tag {
+        background: var(--nm-bg);
+        @apply rounded-full px-2.5 py-1 text-[10px] font-medium text-nm-faint shadow-nm-inset-sm;
+    }
+
+    /* Raised pill (skills cloud) — presses in on hover */
+    .nm-chip {
+        background: var(--nm-bg);
+        @apply rounded-full px-[18px] py-2 text-xs font-semibold text-nm-muted
+            shadow-nm-raised transition-all duration-200;
+    }
+    .nm-chip:hover {
+        @apply text-nm-text shadow-nm-inset;
+    }
+}
+
+/* Section label — tiny uppercase tracker (stat labels, form labels, sub-labels) */
+.nm-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--nm-text-faint);
+}
+
+/* Main section title (About / Experience / Skills / …) — sized independently
+   of .nm-label so each can be tuned on its own. */
+.nm-section-title {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--nm-text-faint);
+}
+
+/* Section heading line that extends to the right of a label */
+.nm-rule {
+    flex: 1;
+    height: 4px;
+    border-radius: 999px;
+    box-shadow: var(--nm-inset-sm);
+}
+
+/* Inset code / form field base */
+.nm-field {
+    background: var(--nm-bg);
+    box-shadow: var(--nm-inset);
+    color: var(--nm-text);
+    border: none;
+    outline: none;
+}
+.nm-field::placeholder {
+    color: var(--nm-text-faint);
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+::-webkit-scrollbar-track {
+    background: var(--nm-bg);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--nm-shadow-dark);
+    border-radius: 3px;
+    box-shadow: var(--nm-inset-sm);
+}
+
+/* Blinking caret used in the hero code block */
+.blink {
+    animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+    50% { opacity: 0.4; }
 }
