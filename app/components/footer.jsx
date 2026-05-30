@@ -1,33 +1,47 @@
 // @flow strict
 import Link from "next/link";
+import { personalData } from "@/utils/data/personal-data";
+import { BsGithub, BsLinkedin, BsTwitter, BsStackOverflow, BsFacebook } from "react-icons/bs";
+
+const SOCIALS = [
+    { href: personalData.github, icon: BsGithub, label: "GitHub" },
+    { href: personalData.linkedIn, icon: BsLinkedin, label: "LinkedIn" },
+    { href: personalData.twitter, icon: BsTwitter, label: "Twitter" },
+    { href: personalData.stackOverflow, icon: BsStackOverflow, label: "Stack Overflow" },
+    { href: personalData.facebook, icon: BsFacebook, label: "Facebook" },
+];
 
 function Footer() {
+    const year = new Date().getFullYear();
+
     return (
-        <div className="relative border-t bg-[#0d1224] border-[#353951] text-white">
-            <div className="mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem] py-6 lg:py-10">
-                <div className="flex justify-center -z-40">
-                    <div className="absolute top-0 h-[1px] w-1/2 bg-gradient-to-r from-transparent via-violet-500 to-transparent"></div>
-                </div>
-                <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p className="text-sm text-gray-400">
-                        &copy; {new Date().getFullYear()} Developed by{" "}
+        <footer className="nm-surface mt-12 w-full sm:mt-20">
+            <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-6 px-5 py-8 sm:px-8 sm:py-10 md:flex-row md:justify-between">
+                <p className="order-2 text-center text-xs text-nm-muted md:order-1 md:text-left">
+                    &copy; {year} — Developed by{" "}
+                    <span className="font-semibold text-nm-text">Aswin Blix T.C</span> — Kanniyakumari,
+                    India
+                </p>
+
+                <div className="order-1 flex items-center gap-3 md:order-2">
+                    {SOCIALS.map(({ href, icon: Icon, label }) => (
                         <Link
+                            key={label}
+                            href={href}
                             target="_blank"
-                            href="https://www.linkedin.com/in/aswin-blix/"
-                            className="text-[#16f2b3] hover:underline"
+                            aria-label={label}
+                            className="nm-icon-btn h-9 w-9"
                         >
-                            Aswin Blix
+                            <Icon size={15} />
                         </Link>
-                    </p>
-                    <a
-                        href="#"
-                        className="text-sm text-gray-400 hover:text-[#16f2b3] transition-colors duration-300"
-                    >
-                        Back to top &uarr;
-                    </a>
+                    ))}
                 </div>
+
+                <a href="#" className="nm-btn order-3 gap-1.5 px-4 py-2 text-xs">
+                    Back to top &uarr;
+                </a>
             </div>
-        </div>
+        </footer>
     );
 }
 

@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+    darkMode: "class",
     content: [
         "./pages/**/*.{js,ts,jsx,tsx,mdx}",
         "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -7,6 +8,25 @@ module.exports = {
     ],
     theme: {
         extend: {
+            // Values live in app/css/globals.scss; these only map names -> vars.
+            colors: {
+                nm: {
+                    bg: "var(--nm-bg)",
+                    text: "var(--nm-text)",
+                    muted: "var(--nm-text-muted)",
+                    faint: "var(--nm-text-faint)",
+                },
+            },
+            boxShadow: {
+                "nm-raised": "var(--nm-raised)",
+                "nm-raised-sm": "var(--nm-raised-sm)",
+                "nm-raised-lg": "var(--nm-raised-lg)",
+                "nm-inset": "var(--nm-inset)",
+                "nm-inset-sm": "var(--nm-inset-sm)",
+            },
+            fontFamily: {
+                mono: ["var(--font-mono)", "monospace"],
+            },
             backgroundImage: {
                 "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
                 "gradient-conic":
