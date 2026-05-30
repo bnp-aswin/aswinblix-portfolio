@@ -50,7 +50,10 @@ function AboutSection() {
 
             <div className="nm-surface relative overflow-hidden rounded-[28px] p-6 shadow-nm-raised-lg sm:p-8 lg:p-10">
                 {/* Decorative grayscale lottie, top-right */}
-                <div className="pointer-events-none absolute -right-6 -top-6 hidden w-40 opacity-20 grayscale lg:block xl:w-52">
+                <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -right-6 -top-6 hidden w-40 opacity-20 grayscale lg:block xl:w-52"
+                >
                     <AnimationLottie animationPath={lottieAbout} />
                 </div>
 
@@ -62,7 +65,7 @@ function AboutSection() {
                                 src={personalData.profile}
                                 width={200}
                                 height={200}
-                                alt="Aswin Blix"
+                                alt="Aswin Blix T.C — AI-Native Full Stack Engineer"
                                 priority
                                 className="h-[180px] w-[180px] rounded-full object-cover grayscale transition-all duration-700 hover:grayscale-0 sm:h-[200px] sm:w-[200px]"
                             />
@@ -84,9 +87,9 @@ function AboutSection() {
 
                     {/* RIGHT — copy */}
                     <div className="about-rise relative z-10">
-                        <h2 className="mb-4 text-2xl font-extrabold tracking-tight text-nm-text sm:text-[28px]">
+                        <h3 className="mb-4 text-2xl font-extrabold tracking-tight text-nm-text sm:text-[28px]">
                             Hey! I&apos;m Aswin Blix
-                        </h2>
+                        </h3>
                         <p className="max-w-2xl text-[15px] leading-[1.8] text-nm-muted">
                             {personalData.description}
                         </p>

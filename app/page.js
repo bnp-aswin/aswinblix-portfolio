@@ -55,6 +55,15 @@ const jsonLd = [
                 "@type": "Organization",
                 name: "BitsNPixs Technologies",
             },
+            hasOccupation: {
+                "@type": "Occupation",
+                name: "AI-Native Full Stack Engineer",
+                skills: "React, Next.js, Vue.js, Laravel, PHP, Python, C#/.NET, Shopify, Odoo, AWS, MySQL, Tailwind CSS, GSAP",
+            },
+            alumniOf: {
+                "@type": "CollegeOrUniversity",
+                name: "Sathyabama University, Chennai",
+            },
         },
     },
     {
@@ -67,6 +76,53 @@ const jsonLd = [
         author: {
             "@id": "https://aswin-blix.github.io/#person",
         },
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "@id": "https://aswin-blix.github.io/#faq",
+        mainEntity: [
+            {
+                "@type": "Question",
+                name: "Who is Aswin Blix T.C?",
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Aswin Blix T.C is an AI-Native Full Stack Engineer based in Kanniyakumari, Tamil Nadu, India, with 4+ years of experience building clean, modern web applications using React, Next.js, Laravel, Vue.js, Python, Shopify, Odoo, and AWS.",
+                },
+            },
+            {
+                "@type": "Question",
+                name: "What technologies does Aswin Blix specialize in?",
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "He works across the full stack with React, Next.js, Vue.js, Laravel, PHP, Python, C#/.NET, Shopify, Odoo, AWS, MySQL, Tailwind CSS, and GSAP.",
+                },
+            },
+            {
+                "@type": "Question",
+                name: "How many years of experience does Aswin Blix have?",
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Over 4 years. He has worked as a full-stack developer since 2021 and is currently at BitsNPixs Technologies.",
+                },
+            },
+            {
+                "@type": "Question",
+                name: "Where is Aswin Blix located?",
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Kanniyakumari, Tamil Nadu, India.",
+                },
+            },
+            {
+                "@type": "Question",
+                name: "How can I contact or hire Aswin Blix?",
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "By email at aswinasvin13@gmail.com or via LinkedIn at https://www.linkedin.com/in/aswin-blix/. He is available for full-stack and AI-assisted development work.",
+                },
+            },
+        ],
     },
 ];
 

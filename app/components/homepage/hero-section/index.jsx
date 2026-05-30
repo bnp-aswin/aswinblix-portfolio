@@ -92,7 +92,10 @@ function HeroSection() {
                         Available for work
                     </span>
 
-                    <h1 className="text-[clamp(40px,6vw,72px)] font-black leading-[0.95] tracking-[-0.04em]">
+                    <h1
+                        aria-label={`${personalData.name} — ${personalData.designation}`}
+                        className="text-[clamp(40px,6vw,72px)] font-black leading-[0.95] tracking-[-0.04em]"
+                    >
                         <span className="hero-rise hero-scramble block text-nm-text">{firstName}</span>
                         <span className="hero-rise hero-scramble block text-nm-muted">{lastName}</span>
                     </h1>
