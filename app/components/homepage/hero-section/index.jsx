@@ -104,7 +104,7 @@ function HeroSection() {
                         {personalData.designation}
                     </p>
                     <p className="hero-rise mt-1.5 font-mono text-[13px] text-nm-faint">
-                        4+ years · React · Laravel · AWS · Shopify · Odoo
+                        4+ years · React · Next.js · Laravel · AWS · Shopify · Odoo
                     </p>
 
                     <div className="hero-rise mt-9 flex flex-wrap items-center gap-3">
@@ -145,12 +145,14 @@ function HeroSection() {
                                 <span className="text-nm-faint">const</span>{" "}
                                 <span className="text-nm-text">coder</span> = {"{"}
                                 {"\n"}  name: <span className="text-nm-text">{"'Aswin Blix'"}</span>,
-                                {"\n"}  role: <span className="text-nm-text">{"'AI-Native Full Stack'"}</span>,
-                                {"\n"}  stack: [<span className="text-nm-text">{"'React'"}</span>,{" "}
+                                {"\n"}  role: <span className="text-nm-text">{`'${personalData.designation}'`}</span>,
+                                {"\n"}  stack: [<span className="text-nm-text">{"'Next.js'"}</span>,{" "}
                                 <span className="text-nm-text">{"'Laravel'"}</span>,{" "}
                                 <span className="text-nm-text">{"'AWS'"}</span>],
-                                {"\n"}  hardWorker: <span className="text-nm-text">true</span>,
-                                {"\n"}  quickLearner: <span className="text-nm-text">true</span>,
+                                {"\n"}  builds: [<span className="text-nm-text">{"'commerce'"}</span>,{" "}
+                                <span className="text-nm-text">{"'ERP'"}</span>,{" "}
+                                <span className="text-nm-text">{"'design systems'"}</span>],
+                                {"\n"}  shipped: <span className="text-nm-text">{projectsData.length}</span>,
                                 {"\n"}  hireable: <span className="text-nm-text">() =&gt; true</span>,
                                 {"\n"}
                                 {"}"}

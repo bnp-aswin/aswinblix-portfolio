@@ -5,6 +5,68 @@
 
 export const projectsData = [
     {
+        id: 14,
+        name: "Yoode - Multi-Brand E-Commerce Platform & Storefront API",
+        description:
+            "I built a multi-tenant e-commerce platform for Indian apparel brands: a Next.js 16 App Router storefront with an 84-page admin console, and an Express 5 REST API over Azure SQL. The API is EXECUTE-only, so every data access runs through one of 391 stored procedures, and the GST pricing engine exists twice - a JavaScript reference implementation and a byte-identical SQL port kept in step by a fuzzing differential test. Each brand resolves from its own domain and carries its own theme, settings and Razorpay account. I also wrote a browser garment designer that composites SVG print panels and removes artwork backgrounds in a Web Worker using a self-hosted ONNX model.",
+        tools: [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Express",
+            "Azure SQL Database",
+            "Amazon ECS",
+            "AWS Amplify",
+            "TanStack Query",
+            "Razorpay",
+            "SCSS Modules",
+        ],
+        role: "Full Stack Developer",
+        code: "",
+        demo: "https://yoode.in",
+    },
+    {
+        id: 15,
+        name: "Yoode 365 - Sales & Production CRM",
+        description:
+            "Yoode 365 is an internal CRM I built to move a garment-decoration company's Windows desktop system into the browser for sales reps, the production floor, and management. It runs on Laravel against an existing Azure SQL Server schema, so I wrote the whole data layer with the query builder and the legacy stored procedures instead of Eloquent, letting SQL Server own all tax and pricing maths. I implemented WebAuthn passkeys and TOTP as second factors with device approval, rolling expiry and per-user device caps, quotation delivery over the Interakt WhatsApp API, HTMX partial refreshes, a Vue product picker, and Monolog critical-log alerts. It deploys to AWS Elastic Beanstalk behind nginx with CloudWatch log streaming.",
+        tools: [
+            "Laravel",
+            "PHP",
+            "Azure SQL Server",
+            "Vue.js",
+            "HTMX",
+            "Blade",
+            "Tailwind CSS",
+            "Vite",
+            "AWS Elastic Beanstalk",
+            "WebAuthn",
+        ],
+        role: "Full Stack Developer",
+        code: "",
+        demo: "",
+    },
+    {
+        id: 16,
+        name: "ShopKit - E-commerce Design System",
+        description:
+            "I built ShopKit, a copy-paste e-commerce design system for storefront developers, authored in SCSS with dart-sass and shipped as a single compiled stylesheet. I structured it around a three-tier design token model (primitives, semantic, per-component) so dark mode and multi-brand theming are runtime CSS-variable overrides scoped to data-theme and data-brand, with no recompile. All styles sit inside a namespaced @layer cascade, so consumer CSS wins without !important, and a stylelint-use-logical rule fails the build on any physical property to keep RTL working. I added a typed React parity layer and a Node parity script that asserts every class it emits exists in the compiled CSS, plus a gzip size budget check.",
+        tools: [
+            "SCSS",
+            "CSS",
+            "Dart Sass",
+            "Design Tokens",
+            "React",
+            "TypeScript",
+            "Node.js",
+            "Stylelint",
+            "CSS Cascade Layers",
+        ],
+        role: "Design System & Front-End Developer",
+        code: "",
+        demo: "",
+    },
+    {
         id: 1,
         name: "Yoode - Custom Merchandise",
         description:
