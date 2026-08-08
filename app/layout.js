@@ -63,6 +63,7 @@ export const metadata = {
         title: "Aswin Blix T.C — AI-Native Full Stack Engineer",
         description:
             "Portfolio of Aswin Blix T.C — AI-Native Full Stack Engineer with 4+ years of experience building clean, modern web solutions using React, Next.js, Laravel, Vue.js, Python, Shopify, Odoo, and AWS.",
+        site: "@aswinblix",
         creator: "@aswinblix",
         images: ["/card.png"],
     },
