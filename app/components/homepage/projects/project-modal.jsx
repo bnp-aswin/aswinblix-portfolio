@@ -37,12 +37,12 @@ export default function ProjectModal({ project, icon: Icon, onClose }) {
             role="dialog"
             aria-modal="true"
             aria-label={`${project.name} details`}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-nm-scrim p-4 backdrop-blur-sm"
         >
             <div
                 ref={panelRef}
                 onClick={(e) => e.stopPropagation()}
-                className="nm-surface relative max-h-[86vh] w-full max-w-lg overflow-y-auto rounded-[24px] p-6 shadow-nm-raised-lg sm:p-8"
+                className="nm-surface relative max-h-[86vh] w-full max-w-lg overflow-y-auto rounded-[24px] p-6 shadow-nm-elevated sm:p-8"
             >
                 <button
                     onClick={onClose}

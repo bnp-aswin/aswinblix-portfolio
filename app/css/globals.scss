@@ -28,10 +28,13 @@
     --nm-shadow-dark: #c0c0c0;
     --nm-shadow-light: #ffffff;
 
-    /* Text hierarchy: primary -> muted -> faint */
-    --nm-text: #1a1a1a;
-    --nm-text-muted: #666666;
-    --nm-text-faint: #999999;
+    /* Text hierarchy: primary -> muted -> faint.
+       All three clear WCAG AA (4.5:1) against --nm-bg — the faint tier is
+       used for 10-11px tags and labels, which counts as normal-size text,
+       so it cannot be lightened past ~#636363 here. */
+    --nm-text: #1a1a1a;        /* 13.4:1 */
+    --nm-text-muted: #4f4f4f;  /*  6.3:1 */
+    --nm-text-faint: #636363;  /*  4.6:1 */
 
     /* Shadow presets (composed from the two shadow colours above) */
     --nm-raised:    6px 6px 14px var(--nm-shadow-dark),   -6px -6px 14px var(--nm-shadow-light);
@@ -39,15 +42,28 @@
     --nm-raised-lg: 10px 10px 24px var(--nm-shadow-dark), -10px -10px 24px var(--nm-shadow-light);
     --nm-inset:     inset 4px 4px 10px var(--nm-shadow-dark), inset -4px -4px 10px var(--nm-shadow-light);
     --nm-inset-sm:  inset 2px 2px 6px var(--nm-shadow-dark),  inset -2px -2px 6px var(--nm-shadow-light);
+
+    /* OVERLAY LAYER — for surfaces that float above a dimmed page (modals).
+       Neumorphic presets assume the surface sits on the SAME background, so
+       their white -x -y highlight blooms into a halo over a scrim. Use these
+       instead for anything above --nm-scrim. */
+    --nm-scrim: rgba(0, 0, 0, 0.55);
+    --nm-elevated: 0 30px 60px -15px rgba(0, 0, 0, 0.45),
+                   0 8px 20px -8px rgba(0, 0, 0, 0.3);
 }
 
 .dark {
     --nm-bg: #1c1c1e;
     --nm-shadow-dark: #111113;
     --nm-shadow-light: #272729;
-    --nm-text: #ebebeb;
-    --nm-text-muted: #888888;
-    --nm-text-faint: #555555;
+    --nm-text: #ebebeb;        /* 14.3:1 */
+    --nm-text-muted: #a3a3a3;  /*  6.8:1 */
+    --nm-text-faint: #8a8a8a;  /*  4.9:1 */
+
+    /* A dark panel on a dark scrim needs a heavier shadow to separate. */
+    --nm-scrim: rgba(0, 0, 0, 0.7);
+    --nm-elevated: 0 30px 60px -15px rgba(0, 0, 0, 0.8),
+                   0 8px 20px -8px rgba(0, 0, 0, 0.6);
 }
 
 html {

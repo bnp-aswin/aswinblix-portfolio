@@ -15,6 +15,7 @@ module.exports = {
                     text: "var(--nm-text)",
                     muted: "var(--nm-text-muted)",
                     faint: "var(--nm-text-faint)",
+                    scrim: "var(--nm-scrim)",
                 },
             },
             boxShadow: {
@@ -23,6 +24,7 @@ module.exports = {
                 "nm-raised-lg": "var(--nm-raised-lg)",
                 "nm-inset": "var(--nm-inset)",
                 "nm-inset-sm": "var(--nm-inset-sm)",
+                "nm-elevated": "var(--nm-elevated)",
             },
             fontFamily: {
                 mono: ["var(--font-mono)", "monospace"],
